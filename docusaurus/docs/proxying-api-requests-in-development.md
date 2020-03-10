@@ -95,14 +95,15 @@ module.exports = function(app) {
 You can now register proxies as you wish! Here's an example using the above `http-proxy-middleware`:
 
 ```js
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = function(app) {
   app.use(
-    '/api',
+    "/api",
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: "https://localhost:5000",
       changeOrigin: true,
+      secure: false // True/false – if you want to verify the SSL Cert
     })
   );
 };
